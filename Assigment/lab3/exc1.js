@@ -12,7 +12,6 @@ const http = require('http');
                 fs.writeFileSync('text.txt', Buffer.concat(body).
                 toString().split('=')[1]);
             });
-            res.statusCode = 302;
             res.setHeader("Location", "/");
             return res.end();
         }   
