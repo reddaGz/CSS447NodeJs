@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const controller=require('../controllers/bookController')
+
 router.get('/',controller.getAllBook)
 router.get('/:id',controller.getById)
 router.post('/',controller.save)

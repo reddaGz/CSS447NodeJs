@@ -8,5 +8,5 @@ const path=require('path')
 
 
 fs.createReadStream(path.join(__dirname, 'input.txt')).
-pipe(zlib.createGzip()).
+pipe(zlib.createGunzip()).
 pipe(fs.createWriteStream(path.join(__dirname, 'zipInput.txt.gz')));

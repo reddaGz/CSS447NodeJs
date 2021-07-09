@@ -51,7 +51,7 @@ window.onload = function () {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": "Bearer " + sessionStorage.getItem("token"),
+           Authorization: "Bearer " + sessionStorage.getItem("token"),
         },
         body: JSON.stringify({
           title: document.getElementById("title").value,
@@ -64,9 +64,11 @@ window.onload = function () {
         .then((res) => {
           if(res.error!=="unauthorize"){
             document.getElementById("form-title").textContent = "Add a Book";
-            document.getElementById("add-form").reset();
+            document.getElementById("add_form").reset();
             document.getElementById("addBtn").dataset.id = "";
-            location.reload();
+            // displayMainPage();
+            // fetchAllBooks();
+             location.reload();
           }else{
             alert(res.error+" to update")
           }
@@ -112,7 +114,7 @@ function addNewBook() {
           const bookDisplay = document.getElementById("display-book");
           displayToClient(bookDisplay, data);
         }else{
-          alert(data.error)
+          alert(data.error+" to add new books only admin can do")
         }
       });
   }
@@ -170,7 +172,7 @@ function displayToClient(bookDisplay, data) {
        if(res.error !== "unauthorize"){
         viewDetail.remove();
        }else{
-        alert(res.error+" to delete") 
+        alert(res.error+" to delete book only admin can do") 
        } 
       });
     });
